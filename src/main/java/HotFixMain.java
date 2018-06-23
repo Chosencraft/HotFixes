@@ -1,7 +1,4 @@
-import listeners.EndDenier;
-import listeners.FireDampener;
-import listeners.SpawnFixer;
-import listeners.WitherSpawnDenier;
+import listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -29,6 +26,7 @@ public class HotFixMain extends JavaPlugin
         manager.registerEvents(new EndDenier(), this);
         manager.registerEvents(new FireDampener(), this);
         manager.registerEvents(new WitherSpawnDenier(), this);
+        manager.registerEvents(new CommandDenier(), this);
 
     }
 
