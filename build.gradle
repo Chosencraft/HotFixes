@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'Hotfix'
-version '1.2.04-SNAPSHOT'
+version '1.21-SNAPSHOT'
 archivesBaseName= 'Hotfix'
 
 sourceCompatibility = 1.8

@@ -18,6 +18,12 @@ public class EndDenier implements Listener
         Player player = changedWorldEvent.getPlayer();
         if (player.getWorld().getEnvironment().equals(World.Environment.THE_END))
         {
+
+            if (player.hasPermission("hotfix.override.end"))
+            {
+                return;
+            }
+
             player.sendMessage(ChatColor.DARK_PURPLE + "Sorry, not today!");
             player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
         }

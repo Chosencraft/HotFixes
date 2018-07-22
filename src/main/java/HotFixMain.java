@@ -1,5 +1,6 @@
 import listeners.*;
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,18 +16,30 @@ public class HotFixMain extends JavaPlugin
 
     public void onDisable()
     {
-        Bukkit.getScheduler().cancelAllTasks();
+        Bukkit.getScheduler().cancelTasks(this);
     }
 
     private void registerEvents()
     {
         PluginManager manager = Bukkit.getServer().getPluginManager();
 
+
+        for (World world : Bukkit.getWorlds())
+        {
+            if (world.getEnvironment().equals(World.Environment.THE_END))
+            {
+                world.setMonsterSpawnLimit(world.getMonsterSpawnLimit() * 2);
+            }
+        }
+
         manager.registerEvents(new SpawnFixer(), this);
         manager.registerEvents(new EndDenier(), this);
         manager.registerEvents(new FireDampener(), this);
         manager.registerEvents(new WitherSpawnDenier(), this);
         manager.registerEvents(new CommandDenier(), this);
+        manager.registerEvents(new DragonXPModifier(), this);
+        manager.registerEvents(new EndMod(this), this);
+        manager.registerEvents(new CommandDelayer(this), this);
 
     }
 

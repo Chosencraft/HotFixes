@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 public class CommandDenier implements Listener
 {
-    String[] bannedCommands = {"?"};
+    String[] bannedCommands = {"?","reload","help"};
 
     @EventHandler (priority = EventPriority.HIGH)
     public void onCommand(PlayerCommandPreprocessEvent preprocessEvent)
